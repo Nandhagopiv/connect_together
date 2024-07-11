@@ -22,7 +22,7 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         let userfound = false
-        axios.get('http://localhost:5000/getusers').then((users) => {
+        axios.get('https://connect-together-ymux.onrender.com/getusers').then((users) => {
             users.data.forEach((data) => {
                 if (eUsername === data.username && ePassword === data.password) {
                     Navigate("/landing", {state: {username: eUsername}})

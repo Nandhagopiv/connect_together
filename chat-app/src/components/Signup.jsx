@@ -6,7 +6,7 @@ const Signup = ()=>{
     const Navigate = useNavigate()
     const handleSignUp = (e)=>{
         e.preventDefault()
-        axios.get(`http://localhost:5000/newuser?username=${newUser}&password=${newPassword}&email=${email}&phone=${phone}`).then((data)=>{
+        axios.get(`https://connect-together-ymux.onrender.com/newuser?username=${newUser}&password=${newPassword}&email=${email}&phone=${phone}`).then((data)=>{
             console.log(data.data);
             if (data.data === false) {
                 setExistingUser(true)

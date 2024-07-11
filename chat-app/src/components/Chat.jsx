@@ -8,7 +8,7 @@ const Chat = ()=>{
     const[chats,setChats] = useState([])
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/refresh').then((data)=>{
+        axios.get('https://connect-together-ymux.onrender.com/refresh').then((data)=>{
             setChats([...data.data])
         })
     },[])
@@ -18,7 +18,7 @@ const Chat = ()=>{
     }
 
     const handleclick = ()=>{
-        axios.get(`http://localhost:5000/addchat?sender=${user.state.username}&msg=${input}`).then((data)=>{
+        axios.get(`https://connect-together-ymux.onrender.com/addchat?sender=${user.state.username}&msg=${input}`).then((data)=>{
             setChats([...data.data])
         })
     }
