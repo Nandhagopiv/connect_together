@@ -17,10 +17,11 @@ const Chat = ()=>{
         setInput(e.target.value.charAt(0).toUpperCase()+e.target.value.slice(1))
     }
 
-    const handleclick = ()=>{
-        axios.get(`https://connect-together-ymux.onrender.com/addchat?sender=${user.state.username}&msg=${input}`).then((data)=>{
+    const handleclick = async ()=>{
+        await axios.get(`https://connect-together-ymux.onrender.com/addchat?sender=${user.state.username}&msg=${input}`).then((data)=>{
             setChats([...data.data])
         })
+        setInput('')
     }
     return(
         <Fragment>
