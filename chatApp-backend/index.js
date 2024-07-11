@@ -32,6 +32,12 @@ app.get('/addchat', async (req,res) => {
         sender:sender,
         msg:msg
     })
+    const totalDocCount = await collection.countDocuments()
+
+    if (totalDocCount >= 1000) {
+        collection.findOneAndDelete({}, { sort: { _id: 1 } })
+    }
+
     const data = await collection.find().toArray()
     res.send(data)
 })
